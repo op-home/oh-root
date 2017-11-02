@@ -9,13 +9,7 @@ proxy.on("error", (err, req, res, next) => {
 });
 
 router.get("/", (req, res, next) => {
-    switch (req.query.pto) {
-        case "mon":
-            proxy.web(req, res, { target: "http://localhost:4000" });
-            break;
-        default:
-            res.render("index", {title: "Express"});
-    }
+    res.send(req.hostname);
 });
 
 module.exports = router;
